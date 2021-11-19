@@ -351,13 +351,13 @@ do
 		exit
 		;;
         12) #課題提出用の出力
-            echo '----ここから----'
             export TZ='Asia/Tokyo'
             read -p '学生番号> ' unumber
             read -p '氏  名  > ' uname
+	    echo '----ここから----'
             echo 'NO. : ' $unumber
             echo 'NAME: ' $uname
-	    echo $unumber | mdsum
+	    echo 'ID. : ' $(echo $unumber | mdsum)
             echo ''
             date
             fn_fig
