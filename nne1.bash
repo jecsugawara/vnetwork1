@@ -241,7 +241,8 @@ menu_list='
 pingを実行
 状態を表示
 ネットワークネームスペースをすべて削除
-終了'
+終了
+課題提出用の出力'
 
 select item in $menu_list
 do
@@ -349,6 +350,30 @@ do
 		echo "bye bye!"
 		exit
 		;;
+        12) #課題提出用の出力
+            echo '----ここから----'
+            export TZ='Asia/Tokyo'
+            read -p '学生番号> ' unumber
+            read -p '氏  名  > ' uname
+            echo 'NO. : ' $unumber
+            echo 'NAME: ' $uname
+            echo ''
+            date
+            fn_fig
+
+            #pingを実行(n1->n2)する
+            echo ''
+            echo 'ns1 から ns2 へpingを実行'
+            echo ''
+            sudo ip netns exec ns1 ping -c 5 192.0.2.2 -I ns1-veth0
+
+            #pingを実行(n2->n1)する
+            echo ''
+            echo 'ns2 から ns1 へpingを実行'
+            echo ''
+            sudo ip netns exec ns2 ping -c 5 192.0.2.1 -I ns2-veth0
+            echo '----ここまで----'
+            ;;		
 	*)
 		echo "番号を入力してください"
 	esac
