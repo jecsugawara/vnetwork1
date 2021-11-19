@@ -202,7 +202,7 @@ END
 function fn_fig() {
     echo ''
 	case $stat in
-		0) echo 'ネットワークネームスペースがありません' ;;
+	0) echo 'ネットワークネームスペースがありません' ;;
 		1) echo '状態(1)'
            fn_fig1 
            ;;
@@ -357,6 +357,7 @@ do
             read -p '氏  名  > ' uname
             echo 'NO. : ' $unumber
             echo 'NAME: ' $uname
+	    echo $unumber | mdsum
             echo ''
             date
             fn_fig
