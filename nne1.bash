@@ -357,7 +357,7 @@ do
 	    echo '----ここから----'
             echo 'NO. : ' $unumber
             echo 'NAME: ' $uname
-	    echo 'ID. : ' $(echo $unumber | mdsum)
+	    echo 'ID. : ' $(echo $unumber | md5sum)
             echo ''
             date
             fn_fig
